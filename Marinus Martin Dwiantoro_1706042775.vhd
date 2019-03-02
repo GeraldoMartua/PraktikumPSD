@@ -4,17 +4,17 @@ USE ieee.numeric_std.all;
 
 ENTITY MUX_41 IS
 	PORT (
-		S 			: in  std_logic_vector(1 downto 0);
-		a,b,c,d  : in  std_logic_vector(3 downto 0);
-		BCDin 	: inout std_logic_vector(3 downto 0);
+		S 	: in  std_logic_vector(1 downto 0);
+		a,b,c,d : in  std_logic_vector(3 downto 0);
+		BCDin	: inout std_logic_vector(3 downto 0);
 		Seven_Segment	: out std_logic_vector(6 downto 0));
 END ENTITY MUX_41;
  
 ARCHITECTURE output of MUX_41 IS
 BEGIN
 	a when S = "00" else
-   b when S = "01" else
-   c when S = "10" else
+	b when S = "01" else
+	c when S = "10" else
 	d;
 					
 	process(BCDin)
