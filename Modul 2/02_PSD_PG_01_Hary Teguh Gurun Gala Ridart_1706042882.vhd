@@ -11,7 +11,7 @@ entity UpDownCounter is
 end UpDownCounter;
 
 architecture Behavioral of UpDownCounter is
-signal UpdownCounter: std_logic_vector(3 downto 0); 
+signal UpdownCounter: std_logic_vector(3 downto 0):="0000"; 
 begin
 -- down counter
 process(Clock,Reset)
