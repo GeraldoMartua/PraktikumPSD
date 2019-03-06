@@ -22,22 +22,22 @@ PORT(
 architecture BCD2 of SEVSEG2 is
 component counter1 is
 port(
-	NAIK,TURUN : IN STD_LOGIC;
-	CLK : IN STD_LOGIC;
-	KELUARAN : OUT STD_LOGIC_VECTOR(3 DOWNTO 0));
+	NAIK,TURUN : IN STD_LOGIC; --port dari sevseg untuk naik turun
+	CLK : IN STD_LOGIC; --port clk dari sevseg 
+	KELUARAN : OUT STD_LOGIC_VECTOR(3 DOWNTO 0));--port untuk keluaran dalam 4 bit nilai bcd 0 - 9
 end component;
 
 	begin
 	countah : counter1
 	port map(
-		NAIK => naik,
-		TURUN => turun,
-		CLK => clk,
-		KELUARAN => counting);
+		NAIK => naik,--memberikan port naik dari counter ke signal naik
+		TURUN => turun,--memberikan port turun dari counter ke signal turun
+		CLK => clk, --memberikan port clk ke port clk di sevseg
+		KELUARAN => counting);--memasukan output dari counter sebagai signal di sevseg
 	process (counting)
 	begin
 		
-		CASE counting IS --decoder sev seg function
+		CASE counting IS --decoder sev seg function dari fungsi port keluaran counter
 			WHEN "0000" =>
 				A <= '1';
 				B <= '1';
