@@ -3,7 +3,7 @@ library ieee;
     use ieee.std_logic_arith.all;
     use ieee.std_logic_unsigned.all;
 
-entity up_down_counter is
+entity counter is
   port (
     cout    :out std_logic_vector (3 downto 0) := "0000";-- Output of the counter
     load    :in  std_logic;                    -- up_down control for counter
@@ -12,7 +12,7 @@ entity up_down_counter is
   );
 end entity;
 
-architecture structural of up_down_counter is
+architecture structural of counter is
 	signal count : std_logic_vector (3 downto 0) := "0000";
 begin
 	process (clk, reset)
