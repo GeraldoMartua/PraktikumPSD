@@ -1,6 +1,6 @@
 library ieee;
     use ieee.std_logic_1164.all;
-	USE IEEE.STD_LOGIC_ARITH.ALL;
+    use ieee.std_logic_arith.all;
     use ieee.std_logic_unsigned.all;
 
 entity up_down_counter is
