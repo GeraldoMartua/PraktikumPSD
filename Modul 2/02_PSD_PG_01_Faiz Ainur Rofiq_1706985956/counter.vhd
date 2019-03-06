@@ -4,20 +4,22 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity counter is
     Port ( CLK : in  STD_LOGIC; 
-				DIR : in  STD_LOGIC;											 -- DIRection => 0 == counting down 
---																										  1 == counting up
+				DIR : in  STD_LOGIC; -- DIRection => 0 == counting down 
+                                                     --              1 == counting up
 				sev1_out : out  STD_LOGIC_VECTOR (6 downto 0);
 				sev2_out : out  STD_LOGIC_VECTOR (6 downto 0);
-				max_selector : in STD_LOGIC_VECTOR(3 downto 0));    -- Maximum digit => 1 == 0 to 10
---																												2 == 0 to 20
---																												3 == 0 to 30
---																												4 == 0 to 40
---																												5 == 0 to 50
---																												6 == 0 to 60
---																												7 == 0 to 70
---																												8 == 0 to 80
---																												9 == 0 to 99
---																												0 == INVALID
+	  			max_selector : in STD_LOGIC_VECTOR(3 downto 0));    
+-- max_selector = Input Maximum Digit as BCD
+-- Decimal 1 == 0 to 10
+-- Decimal 2 == 0 to 20
+-- Decimal 3 == 0 to 30
+-- Decimal 4 == 0 to 40
+-- Decimal 5 == 0 to 50
+-- Decimal 6 == 0 to 60
+-- Decimal 7 == 0 to 70
+-- Decimal 8 == 0 to 80
+-- Decimal 9 == 0 to 99
+-- Decimal 0 == INVALID
 			  
 end counter;
 
