@@ -7,7 +7,7 @@ library ieee;
 
 entity updown_counter is
   port (
-    output  :out std_logic_vector (7 downto 0);-- Output of the counter
+    output  :out std_logic_vector (7 downto 0);-- Output counter
     up_down :in  std_logic;                    -- up_down control for counter
     clk     :in  std_logic;                    -- Input clock
     reset   :in  std_logic                     -- Input reset
