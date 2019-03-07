@@ -8,7 +8,7 @@ entity Counter_Up_Down1 is
     Port ( clock		: in std_logic; -- input Clock
 	   up_down		: in std_logic; -- up atau down
            reset		: in std_logic; -- input Reset 
-           counter_out	: out std_logic_vector(3 downto 0) -- output 4-bit
+           counter_out		: out std_logic_vector(3 downto 0) -- output 4-bit
      );
 end entity;
 
