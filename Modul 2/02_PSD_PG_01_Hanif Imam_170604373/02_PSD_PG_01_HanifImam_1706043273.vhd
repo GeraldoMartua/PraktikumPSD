@@ -1,8 +1,8 @@
-library IEEE;
 --- Nama  : Hanif Imam
 --- NPM   : 1706043273
 --- Modul : Modul 02, Up Down Counter
 
+library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
