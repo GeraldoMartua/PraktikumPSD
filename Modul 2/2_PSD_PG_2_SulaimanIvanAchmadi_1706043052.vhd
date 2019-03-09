@@ -8,7 +8,7 @@ entity up_down_counter is
            LED : out  std_logic_vector (7 downto 0));
 end up_down_counter;
 
-architecture behavioral of up_down_counter2 is
+architecture behavioral of up_down_counter is
     signal clk_div : std_logic_vector (5 downto 0);
     signal count   : std_logic_vector (7 downto 0);
 begin
