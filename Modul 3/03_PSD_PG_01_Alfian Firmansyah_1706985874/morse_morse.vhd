@@ -68,7 +68,7 @@ begin
 				if encapsulated = 0 or encapsulated = 1 or encapsulated = 3 or encapsulated = 4 then
 					trigger_code <= '1';
 					encapsulated <= encapsulated + 1;
-				elsif encapsulated = 2 or encapsulated = 5 or encapsulated = 6 then
+				elsif encapsulated = 2 or encapsulated = 5 or encapsulated = 6 or encapsulated = 7 or encapsulated = 8 then
 					trigger_code <= '0';
 					encapsulated <= encapsulated + 1;
 				else
