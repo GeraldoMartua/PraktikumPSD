@@ -1,1 +1,1 @@
-<p align="center"><img src="https://github.com/bloodberrys/BucketGambar/blob/master/down_counterr.JPG?raw=true"></p>
+<p align="center"><img src="https://github.com/GeraldoMartua/PraktikumPSD/blob/master/Modul%203/03_PSD_PG_01_Alfian%20Firmansyah_1706985874/Capture.JPG?raw=true"></p>
