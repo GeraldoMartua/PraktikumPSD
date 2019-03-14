@@ -1,0 +1,22 @@
+I'm Greeting my fella FAHRI using Morse Code :)))))))))
+
+ID :
+Output dari program ini adalah Menghasilkan Morse Code Dari kata "HAI FAHRI" 
+dengan Dot dan Dash Menggunakan nilai output 1 atau 0 dengan Periode Waktu yang di tentukan.
+Kode Morse Internasional :
+A = . - 
+F = . . - .
+H = . . . .
+I = . .
+R = . - .
+
+EN:
+Output of this program is Morse Code from words "HAI FAHRI".
+Dot and Dash in the wave interface is using logic 1 or 0 with specified periodic time.
+This Program Using International Morse Code
+A = . - 
+F = . . - .
+H = . . . .
+I = . .
+R = . - .
+
