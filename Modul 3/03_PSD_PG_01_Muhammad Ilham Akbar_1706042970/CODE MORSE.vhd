@@ -307,7 +307,7 @@ process (clk) is
 			end if;
 end process;
 end behavioral;
-			
+--OUTPUT HAI DUTO			
 				
 			
 			
