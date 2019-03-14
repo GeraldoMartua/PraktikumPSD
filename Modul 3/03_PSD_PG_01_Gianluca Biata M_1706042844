@@ -1,0 +1,260 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity MorseCode is
+generic(clkFrequency : integer := 20);
+port(	clk	: IN STD_LOGIC;
+	reset	: IN STD_LOGIC;
+	morse	: OUT STD_LOGIC);
+end MorseCode;
+
+architecture Morse of MorseCode is
+--HAI PAT = .... .- ..    .--. .- -
+signal a : integer;
+signal b : integer := 0;
+signal c : integer := 0;
+
+begin
+process(clk,reset) is
+begin
+	if rising_edge(clk) then
+		if reset = '0' then
+			a <= 0;
+			b <= 0;
+			c <= 0;
+		else
+			if a = clkFrequency - 1 then
+				a <= 0;
+				if b = 0 then			-- H = . . . .
+					if c = 0 then 		-- .
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 1 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 2 then
+						morse <= '0';
+						c <= c + 1;
+					elsif c = 3 then	-- .
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 4 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 5 then
+						morse <= '0';
+						c <= c + 1;
+					elsif c = 6 then	-- .
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 7 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 8 then
+						morse <= '0';
+						c <= c + 1;
+					elsif c = 9 then	-- .
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 10 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 11 then
+						morse <= '0';
+						c <= c + 1;
+					else
+						morse <= '0';
+						c <= 0;
+						b <= b + 1;
+					end if;
+
+				elsif b = 1 then		-- A = .-
+					if c = 0 then 		-- .
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 1 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 2 then
+						morse <= '0';
+						c <= c + 1;
+					elsif c = 3 then	-- -
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 4 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 5 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 6 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 7 then
+						morse <= '0';
+						c <= c + 1;
+					else
+						morse <= '0';
+						c <= 0;
+						b <= b + 1;
+					end if;
+
+				elsif b = 2 then		-- I = . . 
+					if c = 0 then 		-- .
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 1 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 2 then
+						morse <= '0';
+						c <= c + 1;
+					elsif c = 3 then	-- .
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 4 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 5 then
+						morse <= '0';
+						c <= c + 1;
+					else
+						morse <= '0';
+						c <= 0;
+						b <= b + 1;
+					end if;
+
+				elsif b = 3 then		-- SPASI =  ~ 
+					if c = 0 then 		-- ()()()()
+						morse <= '0';
+						c <= c + 1;
+					elsif c = 1 then
+						morse <= '0';
+						c <= c + 1;
+					elsif c = 2 then
+						morse <= '0';
+						c <= c + 1;
+					else
+						morse <= '0';
+						c <= 0;
+						b <= b + 1;
+				end if;
+
+				elsif b = 4 then		-- P = .--.
+					if c = 0 then		-- -
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 1 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 2 then
+						morse <= '0';
+						c <= c + 1;
+					elsif c = 3 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 4 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 5 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 6 then
+						morse <= '1';
+						c <= c + 1;	
+					elsif c = 7 then
+						morse <= '0';
+						c <= c + 1;
+					elsif c = 8 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 9 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 10 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 11 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 12 then
+						morse <= '0';
+						c <= c + 1;
+					elsif c = 13 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 14 then
+						morse <= '1';
+						c <= c + 1;
+					else
+						morse <= '0';
+						c <= 0;
+						b <= b + 1;
+					end if;
+				elsif b = 5 then		-- A = .-
+					if c = 0 then 		-- .
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 1 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 2 then
+						morse <= '0';
+						c <= c + 1;
+					elsif c = 3 then	-- -
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 4 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 5 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 6 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 7 then
+						morse <= '0';
+						c <= c + 1;
+					else
+						morse <= '0';
+						c <= 0;
+						b <= b + 1;
+					end if;
+
+				elsif b = 6 then		-- T = -
+					if c = 0 then		-- -
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 1 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 2 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 3 then
+						morse <= '1';
+						c <= c + 1;
+					elsif c = 4 then
+						morse <= '0';
+						c <= c + 1;
+					else
+						morse <= '0';
+						c <= 0;
+						b <= b + 1;
+					end if;
+
+				
+
+				end if;
+			else
+				a <= a + 1;
+			end if;
+		end if;
+	end if;
+
+end process;
+end Morse;
