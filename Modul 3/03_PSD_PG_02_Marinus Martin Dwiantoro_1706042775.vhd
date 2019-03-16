@@ -3,11 +3,9 @@ USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY SANDIRUMPUT IS
- PORT(
- --IN
- NAME : IN STRING (10 DOWNTO 1) := "HAI FAKHRUL!";
- --OUT
- TEMP : OUT STD_LOGIC := '0');
+PORT( 
+NAME : IN STRING (10 DOWNTO 1) := "HAI FAKHRUL!";
+TEMP : OUT STD_LOGIC := '0');
 END SANDIRUMPUT;
 
 ARCHITECTURE Behaviour OF SANDIRUMPUT IS
@@ -17,7 +15,7 @@ BEGIN
 	BEGIN
 		FOR x in 10 DOWNTO 1 LOOP
 
-		IF NAME(x)='H' THEN --H
+	IF NAME(x)='H' THEN --H
 		TEMP <= '1';
 			WAIT FOR 1 SEC;
 		TEMP <= '0';
@@ -45,7 +43,7 @@ BEGIN
 		TEMP <= '0';
 			WAIT FOR 0.5 SEC;
 
-   ELSIF NAME(x)='I' THEN --I
+	ELSIF NAME(x)='I' THEN --I
 		TEMP <= '1';
 			WAIT FOR 1 SEC;
 		TEMP <= '0';
@@ -55,7 +53,7 @@ BEGIN
 		TEMP <= '0';
 			WAIT FOR 0.5 SEC;
 
-   ELSIF NAME(x)=' ' THEN --Space
+   	ELSIF NAME(x)=' ' THEN --Space
 		TEMP <= '0';
 			WAIT FOR 2 SEC;
    
@@ -77,7 +75,7 @@ BEGIN
 		TEMP <= '0';
 			WAIT FOR 0.5 SEC;
 
-   ELSIF NAME(x)='A' THEN --A
+   	ELSIF NAME(x)='A' THEN --A
 		TEMP <= '1';
 			WAIT FOR 1 SEC;
 		TEMP <= '0';
@@ -148,7 +146,7 @@ BEGIN
 		TEMP <= '0';
 			WAIT FOR 0.5 SEC;
 
-    ELSIF NAME(x)='L' THEN --L
+    	ELSIF NAME(x)='L' THEN --L
 		TEMP <= '1';
 			WAIT FOR 1 SEC;
 		TEMP <= '0';
