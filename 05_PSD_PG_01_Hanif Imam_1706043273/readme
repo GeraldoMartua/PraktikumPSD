@@ -1,0 +1,16 @@
+-- Hanif Imam 1706043273
+-- Penjelasan FSM
+
+State:
+1)S0
+  merupakan state awal saat telepon umum belum di angkat(A) atau dimasukkan koin
+2)S1
+  merupakan state setelah pengguna mengangkat telepon(A), menunggu pengguna untuk memasukkan koin
+3)S2
+  merupakan state setelah pengguna memasukkan koin(C), memberi sinya kepada bagian mesin lain untuk menerima input nomor telepon tujuan(IN). Menungggu sinya yang menunjukkan bahwa pengguna telah selesai mengisi nomor telepon tujuan(SIN)
+4)S3
+  merupakan state setelah menerima sinyal bahwa pengguna telah selesai mengisi nomor(SIN). memberi sinyal bahwa operasi telepon boleh dilakukan(T). menunggu sinya bahwa durasi peneleponan telah habis (D').
+5)Se
+  state setelah durasi peneleponan telah habis (D'). menunggu hingga pengguna menaruh kembali gagang telepon(A')
+
+Tiap state dapat kembali ke state S0 apabila pengguna menaruh kembali gagang telepon(A').
