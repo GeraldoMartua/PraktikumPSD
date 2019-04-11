@@ -5,7 +5,7 @@ use ieee.std_logic_unsigned.all;
 entity payphone is
  port(
 	clk 	: 	in std_logic;
-	rst 	: 	in std_logic;
+	rst 	: 	in std_logic;	-- rst = 1, telepon tutup; rst = 0, telepon diangkat
 	coin	:	in std_logic;
 	dur	:	out std_logic
  );
