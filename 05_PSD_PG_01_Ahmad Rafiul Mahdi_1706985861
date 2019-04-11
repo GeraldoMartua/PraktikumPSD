@@ -1,0 +1,71 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity PayPhone is 
+port(
+	
+	coin : in std_logic;
+	
+	clk: in std_logic; 
+	st  : in std_logic);
+end PayPhone;
+
+architecture calling of PayPhone is
+	type state_type is (down,inputNum,hangUp,talkin);
+	signal PS,NS : state_type; 
+	signal coin_inp:  std_logic;
+	signal angkat: std_logic;
+	signal coin_outp: std_logic;
+	signal timeout: std_logic := '0';
+	signal close_phone: std_logic := '0';
+
+	signal Timer_CountDown: integer;
+begin
+
+coin_inp <= coin;
+
+process(clk,NS)
+begin
+	if (rising_edge(clk)) then
+		PS<= NS;
+	end if;
+end process;
+
+process (PS,clk)
+begin
+	Case PS is	
+
+		when down =>
+			if coin_inp = '0' then						
+				NS <= down;
+			elsif coin_inp = '1' then
+				NS <= inputNum;
+			end if;
+		when inputNum =>
+				
+			NS <= hangUp;
+		when hangUp =>
+			if angkat = '0' then		
+				NS <= down;
+				coin_outp <= '1';		
+				coin_inp <= '0';
+
+			elsif angkat = '1' then		
+				NS <= talkin;			
+				Timer_CountDown <= 30;		
+				coin_outp <= '0';
+			end if;
+		when talkin =>
+			if close_phone = '1' then		
+				NS <=  down;
+			elsif Timer_CountDown = 0 then	
+				NS <=  down;
+				
+			elsif Timer_CountDown > 0 then
+				NS <= talkin;
+				Timer_CountDown <= Timer_CountDown -1;	
+	
+			end if;	
+		end case;
+	end process;
+end calling;
