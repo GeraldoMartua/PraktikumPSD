@@ -6,7 +6,7 @@ use ieee.std_logic_unsigned.all;
 ENTITY Telephone1 is
 PORT (clock	 :    IN STD_LOGIC; -- CLOCK
       reset	 :    IN STD_LOGIC; -- RESET menunujukkan angkat = > tutup =1 dan angkat =0
-	DURASI   : 	  OUT INTEGER; -- lama durasi
+	DURASI   : 	  OUT INTEGER; -- lama durasi telpon
       COIN 	 :    INOUT STD_LOGIC); -- COIN
 	  
 END Telephone1;
