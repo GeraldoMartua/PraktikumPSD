@@ -1,4 +1,6 @@
- library IEEE;
+ --Alzy Maulana copy dari sini
+
+library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity payphone is 
