@@ -5,8 +5,8 @@ use ieee.std_logic_unsigned.all;
 
 ENTITY Telephone1 is
 PORT (clock	 :    IN STD_LOGIC; -- CLOCK
-      reset	 :    IN STD_LOGIC; -- RESET menunujukkan angkat, tutup =1 . angkat =0
-	  DURASI : 	  OUT INTEGER; -- lama durasi
+      reset	 :    IN STD_LOGIC; -- RESET menunujukkan angkat = > tutup =1 dan angkat =0
+	DURASI   : 	  OUT INTEGER; -- lama durasi
       COIN 	 :    INOUT STD_LOGIC); -- COIN
 	  
 END Telephone1;
@@ -19,7 +19,7 @@ TYPE State_type IS (IDLE, Number, Dial, Waiting, CONV,CONV2,CONV3,FINISH); -- ke
 BEGIN 
   PROCESS (clock, reset) 
   BEGIN 
-    If (reset = '1' ) THEN      -- TELPON TIDAK DIANGKAT       
+    If (reset = '1' ) THEN      -- TELPON TIDAK DIANGKAT , ATAU DIKEMBALIKAN KETEMPATNYA      
 		State <= IDLE;
  
     ELSIF rising_edge(clock) THEN -- clock rising    
