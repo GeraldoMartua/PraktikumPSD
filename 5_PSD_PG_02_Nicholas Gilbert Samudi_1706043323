@@ -1,0 +1,110 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity tlpjadul is
+port(
+	clk	: in std_logic;
+	r	: in std_logic;
+	incoin	: in std_logic;
+	innumb	: in std_logic;
+	call	: out std_logic);
+end tlpjadul;
+
+architecture behavioralof tlpjadul is
+	type state is (standby, input, waiting, calling, connected);
+	signal ps, ns : state;
+	signal delay	: inout std_logic;
+	signal connect	: inout std_logic;
+	signal connectdelay	: inout std_logic;
+	signal calltime	: inout std_logic;
+
+	syncclock	: process (clk)
+	begin
+		if rising_edge(clk) then
+			if (r = '1') then
+				ps <=standby;
+			else
+				ps <=ns;
+			end if;
+		end if;
+	end process;
+	
+	kerjatlp	: process (ps, incoin, innumb)
+	begin
+		call <='0';
+		case (ps) is
+			when standby =>
+				if (incoin = '0') then
+					next state <= standby;
+					call <= '0';
+					incoin <= '0';
+				else
+					next state <= input;
+					call <= '0';
+					incoin <= '0';
+				end if;
+			when input =>
+				if (innumb = '0') then
+					next state <= waiting;
+					call <= '0';
+					delay <= '1';
+				else
+					next state <= input;
+					call <= '0';
+				end if;
+			when waiting =>
+				if (delay = '0') then
+					next state <= calling;
+					call <= '0;
+					connectdelay <= 1;
+				else
+					if (innumb = '0') then
+						next state <= waiting;
+						call <= '0';
+					else
+						next state <= input;
+						call <= '0';
+					end if;
+				end if;
+			when calling =>
+				if (connectdelay = '0') then
+					if (connect = '0') then
+						next state <= standby;
+						call <= '0';
+					else
+						next state <= connected;
+						calltime <= '1';
+						call <= '1';
+					end if;
+				else
+					if (connect = '0') then
+						next state <= calling;
+						call <= '0';
+					else
+						next state <= connected;
+						calltime <= '1';
+						call <= '1';
+					end if;
+				end if;
+			when connected =>
+				if (calltime = '0') then
+					if (incoin = '0') then
+						next state <= standby;
+						call <= '0';
+					else
+						next state <= connected;
+						calltime <= '1';
+						call <= '1';
+					end if;
+				else
+					if (connect = '0') then
+						next state <= standby;
+						call <= '0';
+					else
+						next state <= connected;
+						call <= '1';
+					end if;
+				end if;
+		end case;
+	end process;
+end behavioral;
