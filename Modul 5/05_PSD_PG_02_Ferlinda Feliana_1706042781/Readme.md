@@ -14,3 +14,11 @@ Ada tiga lembar uang yang bisa digunakan untuk mengeluarkan Snicker Bar: IDR 500
 ```
 
 Program telah diatur agar bisa memberikan kembalian.
+
+## Finite State Machine
+
+![05_PSD_PG_02_Ferlinda Feliana_1706042781](05_PSD_PG_FSM_02_Ferlinda Feliana_1706042781.png)
+
+## Wave Form
+
+![05_PSD_PG_02_Ferlinda Feliana_1706042781](05_PSD_PG_Wave_02_Ferlinda Feliana_1706042781.png)
