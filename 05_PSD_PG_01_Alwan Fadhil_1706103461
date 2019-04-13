@@ -1,0 +1,222 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity FSM is 
+port(		clock		: in std_logic;
+		reset		: in std_logic;
+		input		: inout integer;
+		choose		: in std_logic_vector (1 downto 0);
+		cola		: inout std_logic;
+		coffe		: inout std_logic;
+		green_tea	: inout std_logic;
+		milo		: inout std_logic;
+		change		: inout integer
+	);
+end FSM;
+
+architecture Vending of FSM is 
+type state is (IDLE, money, money_less_then_9000, money_less_then_8000, money_less_then_7000, 
+				money_less_then_6000, money_less_then_5000, money_less_then_4000,
+				money_less_then_3000,money_less_then_2000, money_less_then_1000,
+				Choose_drink,Out_change);
+
+			signal next_state : state; --next_state itu state 
+
+begin			
+	process(clock, reset)
+	begin
+		if (reset='1') then
+			next_state <= IDLE;
+			input <= 0;
+			cola <= '0';
+			coffe <= '0';
+			green_tea <= '0';
+			milo <= '0';
+			change <= 0;
+			
+		elsif rising_edge(clock) then
+			case next_state is 
+				when IDLE => 
+					if (input > 0 ) then 
+						next_state <= money;
+					end if;
+				
+				when money =>
+					if (input = 1000) then
+						next_state <= money_less_then_9000;
+					elsif (input = 2000) then
+						next_state <= money_less_then_8000;
+					elsif (input = 3000) then
+						next_state <= money_less_then_7000;
+					elsif (input = 4000) then
+						next_state <= money_less_then_6000;
+					elsif (input = 5000) then
+						next_state <= money_less_then_5000;
+					elsif (input = 6000) then
+						next_state <= money_less_then_4000;
+					elsif (input = 7000) then
+						next_state <= money_less_then_3000;
+					elsif (input = 8000) then
+						next_state <= money_less_then_2000;
+					elsif (input = 9000) then
+						next_state <= money_less_then_1000;
+					elsif (input >= 10000) then
+						next_state <= choose_drink;
+					end if;
+					
+				when money_less_then_9000 =>
+					if (input = 1000) then
+						next_state <= money_less_then_9000;
+					elsif (input = 2000) then
+						next_state <= money_less_then_8000;
+					elsif (input = 3000) then
+						next_state <= money_less_then_7000;
+					elsif (input = 4000) then
+						next_state <= money_less_then_6000;
+					elsif (input = 5000) then
+						next_state <= money_less_then_5000;
+					elsif (input = 6000) then
+						next_state <= money_less_then_4000;
+					elsif (input = 7000) then
+						next_state <= money_less_then_3000;
+					elsif (input = 8000) then
+						next_state <= money_less_then_2000;
+					elsif (input = 9000) then
+						next_state <= choose_drink;
+					end if;
+					
+				when money_less_then_8000 =>
+					if (input = 1000) then
+						next_state <= money_less_then_9000;
+					elsif (input = 2000) then
+						next_state <= money_less_then_8000;
+					elsif (input = 3000) then
+						next_state <= money_less_then_7000;
+					elsif (input = 4000) then
+						next_state <= money_less_then_6000;
+					elsif (input = 5000) then
+						next_state <= money_less_then_5000;
+					elsif (input = 6000) then
+						next_state <= money_less_then_4000;
+					elsif (input = 7000) then
+						next_state <= money_less_then_3000;
+					elsif (input = 8000) then
+						next_state <= choose_drink;
+					end if;
+					
+				when money_less_then_7000 =>
+					if (input = 1000) then
+						next_state <= money_less_then_9000;
+					elsif (input = 2000) then
+						next_state <= money_less_then_8000;
+					elsif (input = 3000) then
+						next_state <= money_less_then_7000;
+					elsif (input = 4000) then
+						next_state <= money_less_then_6000;
+					elsif (input = 5000) then
+						next_state <= money_less_then_5000;
+					elsif (input = 6000) then
+						next_state <= money_less_then_4000;
+					elsif (input = 7000) then
+						next_state <= Choose_drink;
+					end if;
+					
+				when money_less_then_6000 =>
+					if (input = 1000) then
+						next_state <= money_less_then_9000;
+					elsif (input = 2000) then
+						next_state <= money_less_then_8000;
+					elsif (input = 3000) then
+						next_state <= money_less_then_7000;
+					elsif (input = 4000) then
+						next_state <= money_less_then_6000;
+					elsif (input = 5000) then
+						next_state <= money_less_then_5000;
+					elsif (input = 6000) then
+						next_state <= Choose_drink;
+					end if;
+				when money_less_then_5000 =>
+					if (input = 1000) then
+						next_state <= money_less_then_9000;
+					elsif (input = 2000) then
+						next_state <= money_less_then_8000;
+					elsif (input = 3000) then
+						next_state <= money_less_then_7000;
+					elsif (input = 4000) then
+						next_state <= money_less_then_6000;
+					elsif (input = 5000) then	
+					next_state <= Choose_drink;
+					end if;
+				when money_less_then_4000 =>
+					if (input = 1000) then
+						next_state <= money_less_then_9000;
+					elsif (input = 2000) then
+						next_state <= money_less_then_8000;
+					elsif (input = 3000) then
+						next_state <= money_less_then_7000;
+					elsif (input = 4000) then
+						next_state <= Choose_drink;
+					end if;
+				when money_less_then_3000 =>
+					if (input = 1000) then
+						next_state <= money_less_then_9000;
+					elsif (input = 2000) then
+						next_state <= money_less_then_8000;
+					elsif (input = 3000) then
+						next_state <= Choose_drink;
+					end if;
+				when money_less_then_2000 =>
+					if (input = 1000) then
+						next_state <= money_less_then_9000;
+					elsif (input = 2000) then
+						next_state <= Choose_drink;
+					end if;
+
+
+				when money_less_then_1000 =>
+					if (input = 1000) then 
+						next_state <= choose_drink;
+					end if;
+					
+				when choose_drink =>
+					case choose is
+						when "00" =>
+							coffe <= '1';
+							cola <= '0';
+							green_tea <= '0';
+							milo <= '0';
+						
+						when "01" =>
+							cola <= '1';
+							coffe <= '0';
+							green_tea <= '0';
+							milo <= '0';
+							
+						when "10" =>
+							green_tea <= '1';
+							coffe <= '0';
+							cola <= '0';
+							milo <= '0';
+							
+						when others =>
+							milo <= '1';
+							coffe <= '0';
+							cola <= '0';
+							green_tea <= '0';
+							
+					end case;
+					
+					next_state <= Out_change;
+					
+				when Out_change =>
+					if (input >= 10000) then
+						change <= input - 5000;
+						next_state <= IDLE;
+					else 
+						next_state <= IDLE;
+					end if;
+			end case;
+		end if;
+	end process;
+end Vending;
