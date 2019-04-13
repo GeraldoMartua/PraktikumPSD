@@ -15,7 +15,7 @@ end entity;
 
 architecture behavior of mesin_buat_jajan is
 
-	type state_type is (idle, sinyal_uang,in_1000,in_3000,in_5000,kembali_3000,
+	type state_type is (idle, sinyal_uang,in_1000,in_3000,in_5000,kembali_2000,
 			keluarciki); 
 	signal current_state,next_state: state_type; 
 
@@ -30,7 +30,7 @@ architecture behavior of mesin_buat_jajan is
 			end if;
 	end process;
 	
-	process(current_state,inputanuang)
+	process(current_state,inputuang)
 		begin
 		case current_state is
 			when idle => 
@@ -39,41 +39,41 @@ architecture behavior of mesin_buat_jajan is
 				next_state <= sinyal_uang;
 				
 			when sinyal_uang => 
-				if(inputanuang = "00")then
+				if(inputuang = "00")then
 					ciki_komo <= '0';
 					kembalian <= "00";
 					next_state <= sinyal_uang;
-				elsif(inputanuang = "01")then -- uang kurang Rp.1000
+				elsif(inputuang = "01")then -- uang kurang Rp.1000
 					ciki_komo <= '0';
 					kembalian <= "00";
 					next_state <= in_1000;
-				elsif(inputanuang = "10")then -- uang Pas
+				elsif(inputuang = "10")then -- uang Pas
 					ciki_komo <= '0';
 					kembalian <= "00";
 					next_state <= keluarciki;
-				elsif(inputanuang = "11")then -- Kembali Rp.3000
+				elsif(inputuang = "11")then -- Kembali Rp.3000
 					ciki_komo <= '1';
 					kembalian <= "00";
-					next_state <= kembali_3000;
+					next_state <= in_3000;
 				end if;
 				
 			when in_1000 => 
-				if(inputanuang = "00") then
+				if(inputuang = "00") then
 					ciki_komo <= '0';
 					kembalian <= "00";
 					next_state <= in_1000;
-				elsif(inputanuang = "01") then
+				elsif(inputuang = "01") then
 					ciki_komo <= '0';
 					kembalian <= "00";
 					next_state <= keluarciki;
-				elsif(inputanuang = "10") then
+				elsif(inputuang = "10") then
 					ciki_komo <= '0';
 					kembalian <= "00";
-					next_state <= in_15k;
-				elsif(inputanuang = "11") then
+					next_state <= in_3000;
+				elsif(inputuang = "11") then
 					ciki_komo <= '0';
 					kembalian <= "00";
-					next_state <= in_25k;
+					next_state <= in_5000;
 				end if;
 			
 			when in_3000 =>
