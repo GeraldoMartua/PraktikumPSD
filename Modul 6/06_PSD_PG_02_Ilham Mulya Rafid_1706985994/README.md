@@ -1,5 +1,5 @@
 # Calculator in VHDL
-
+Storing the Result in RAM and Display it in 7 Segment Display.
 ## Guide
 1. Make new Project in `Quartus Prime Lite`.
 2. Generate 32x8 bits single-port RAM.
