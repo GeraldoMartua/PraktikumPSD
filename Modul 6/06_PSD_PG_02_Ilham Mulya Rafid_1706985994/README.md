@@ -4,7 +4,7 @@
 1. Make new Project in `Quartus Prime Lite`.
 2. Generate 32x8 bits single-port RAM.
 3. Create 7 Segment Entity for Output.
-4. Create each Arithmatical operation entity ( this project is only cover addition, substraction, division, multiplication and factorial operation ).
+4. Create each Arithmatical operation entity ( this project will only covers addition, substraction, division, multiplication and factorial operation ).
 5. Combine All Entity into one Entity.
 
 ## Source Code
