@@ -89,8 +89,8 @@ ARCHITECTURE calculate OF Memo_ram IS
 	CLK <= CLOCK;
 	DATAIN1 <= INP1;
 	DATAIN2 <= INP2;
-	EN <= ENABLE;
 	ADDRESS <= selection;
+	EN <= ENABLE;
 	COUNT <= "000" & ADDRESS(4);
 	COUNT1 <= "000" & DATA_flow;
 	COUNT2 <= "000" & DATA_flow2;
